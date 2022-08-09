@@ -26,13 +26,18 @@ export default createStore({
       commit("UPDATE_USER", payload);
     },
     async getConfiguratorId({ commit }, payload) {
+      console.log("START FETCH");
       const response = await saveConfigurator(payload);
+      console.log("response", response);
       const { config_key } = response;
+
+      console.log("KEY FROM SERVER", config_key);
 
       commit("UPDATE_CONFIG_ID", config_key);
       commit("UPDATE_FINAL_RESULT", payload);
     },
     async sendConfig({ state }) {
+      console.log("SEND CONFIG");
       const finalObject = {
         user: state.user,
         result: state.finalResult,

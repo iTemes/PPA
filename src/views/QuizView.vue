@@ -9,7 +9,8 @@ import IconStar from "@/components/Icons/IconStar.vue";
 import IconTriangle from "@/components/Icons/IconTriangle.vue";
 import IconN from "@/components/Icons/IconN.vue";
 
-import quizObject from "@/utils/questions";
+// import quizObject from "@/utils/questions";
+import { smallQuiz } from "@/utils/questions";
 
 const icons = {
   I: IconSquare,
@@ -20,7 +21,7 @@ const icons = {
 };
 
 const state = reactive({
-  quiz: quizObject,
+  quiz: smallQuiz,
   questionIndex: 0,
   userResponses: {},
   isFinished: false,
@@ -99,16 +100,12 @@ const calculateOptions = computed(() => {
     return acc;
   }, initialState);
 
-  console.log("answersObject", answersObject);
   return answersObject;
 });
 
 // eslint-disable-next-line
 const calculateFinal = computed(() => {
   const { more, less } = calculateOptions.value;
-
-  console.log("calcMmoreaxDifference", more);
-  console.log("less", less);
 
   const maxProp = {
     type: null,
@@ -131,7 +128,6 @@ const calculateFinal = computed(() => {
 });
 
 const prev = () => {
-  console.log("Prev question");
   state.questionIndex -= 1;
 };
 
@@ -143,7 +139,9 @@ const next = () => {
   }
 };
 
-const finishQuiz = () => {};
+const finishQuiz = () => {
+  store.dispatch("sendConfig");
+};
 
 onMounted(() => {
   if (!user.value) {
@@ -154,7 +152,9 @@ onMounted(() => {
 });
 </script>
 <template>
-  <div class="quiz h-screen flex flex-col justify-center items-center">
+  <div
+    class="quiz h-screen p-5 flex flex-col md:justify-center md:items-center"
+  >
     <p v-if="!user">Пользователь не найден, тест не доступен.</p>
     <div v-else-if="!state.isFinished" class="quiz__wrap">
       <h1 class="mb-8 text-3xl font-bold">Personal Profile Appraisal</h1>
@@ -175,7 +175,7 @@ onMounted(() => {
 
       <!--qusetionContainer-->
       <div
-        class="questionContainer max-w-4xl mx-auto p-10 my-5 bg-gray-50"
+        class="questionContainer max-w-4xl mx-auto md:p-10 md:my-5 bg-gray-50"
         v-if="state.questionIndex < state.quiz.questions.length"
       >
         <header class="mb-10">

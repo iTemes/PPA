@@ -21,8 +21,8 @@ const handleFormSubmit = () => {
 };
 </script>
 <template>
-  <div class="login h-screen flex flex-col justify-center items-center">
-    <h1 class="mb-8 text-2xl font-bold">
+  <div class="login h-screen px-5 flex flex-col justify-center items-center">
+    <h1 class="mb-8 text-xl md:text-2xl font-bold">
       Введите ФИО, чтобы начать тестирование.
     </h1>
     <form @submit.prevent="handleFormSubmit" class="w-full max-w-sm">

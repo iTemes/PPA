@@ -1,16 +1,18 @@
-const API_URL = "/expand_settings/api/saver_configurator/";
+// const API_URL = "/expand_settings/api/saver_tester/";
+const API_URL = "http://test2.centrsvet.ru/expand_settings/api/saver_tester/";
 
 export const saveConfigurator = async (data) => {
   try {
-    const result = await fetch(API_URL, {
+    const response = await fetch(API_URL, {
       method: "POST",
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        "Content-Type": "application/json;charset=utf-8",
       },
-      body: new URLSearchParams(data),
-      credentials: "include",
+      body: JSON.stringify(data),
     });
-
+    console.log("response body", response);
+    const result = await response.json();
+    console.log("##### result", result);
     return result;
   } catch (error) {
     console.error("Ошибка:", error);
@@ -31,7 +33,6 @@ export const sendEmailConfig = async (targetEmail, configKey, result) => {
         "Content-Type": "application/json;charset=utf-8",
       },
       body: JSON.stringify(putEmailObject),
-      credentials: "include",
     });
   } catch (error) {
     console.error("Ошибка:", error);
