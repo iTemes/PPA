@@ -14,8 +14,9 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory("/"),
+  history: createWebHistory("/static/AppTesting/"),
   routes,
+  base: "/static/AppTesting/",
 });
 
 export default router;

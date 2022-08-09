@@ -9,8 +9,8 @@ import IconStar from "@/components/Icons/IconStar.vue";
 import IconTriangle from "@/components/Icons/IconTriangle.vue";
 import IconN from "@/components/Icons/IconN.vue";
 
-// import quizObject from "@/utils/questions";
-import { smallQuiz } from "@/utils/questions";
+import quizObject from "@/utils/questions";
+// import { smallQuiz } from "@/utils/questions";
 
 const icons = {
   I: IconSquare,
@@ -21,7 +21,7 @@ const icons = {
 };
 
 const state = reactive({
-  quiz: smallQuiz,
+  quiz: quizObject,
   questionIndex: 0,
   userResponses: {},
   isFinished: false,
@@ -141,6 +141,10 @@ const next = () => {
 
 const finishQuiz = () => {
   store.dispatch("sendConfig");
+
+  setTimeout(() => {
+    router.push("/");
+  }, 2000);
 };
 
 onMounted(() => {
@@ -342,7 +346,13 @@ onMounted(() => {
         <b>{{ calculateFinal.type }} - {{ calculateFinal.value }}</b>
       </p>
       <div class="px-4 py-3 text-center sm:px-6">
-        <button type="button" @click="finishQuiz">Отправить результаты</button>
+        <button
+          class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-md font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+          type="button"
+          @click="finishQuiz"
+        >
+          Отправить результаты
+        </button>
       </div>
     </div>
   </div>

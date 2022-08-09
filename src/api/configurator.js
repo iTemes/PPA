@@ -1,5 +1,5 @@
 // const API_URL = "/expand_settings/api/saver_tester/";
-const API_URL = "http://test2.centrsvet.ru/expand_settings/api/saver_tester/";
+const API_URL = "/expand_settings/api/saver_tester/";
 
 export const saveConfigurator = async (data) => {
   try {
