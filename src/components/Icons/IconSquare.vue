@@ -1,0 +1,16 @@
+<template>
+  <svg
+    width="30"
+    height="30"
+    x="0px"
+    y="0px"
+    viewBox="0 0 60 60"
+    style="enable-background: new 0 0 60 60"
+    xml:space="preserve"
+  >
+    <path
+      d="M49.001,0H10.999C4.934,0,0,4.934,0,10.999v38.003C0,55.066,4.934,60,10.999,60h38.002C55.065,60,60,55.066,60,49.001
+	V10.999C60,4.934,55.065,0,49.001,0z"
+    />
+  </svg>
+</template>
