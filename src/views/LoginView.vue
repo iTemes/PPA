@@ -29,7 +29,7 @@ const handleFormSubmit = () => {
       <div class="flex items-center border-b border-gray-500 py-2">
         <input
           v-model="state.fio"
-          class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none shadow-none"
+          class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-4 px-2 leading-tight focus:outline-none shadow-none"
           type="text"
           placeholder="ФИО"
           aria-label="ФИО"
