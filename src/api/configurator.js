@@ -8,6 +8,7 @@ export const saveConfigurator = async (data) => {
         "Content-Type": "application/json;charset=utf-8",
       },
       body: JSON.stringify(data),
+      credentials: "include",
     });
 
     const result = await response.json();
@@ -31,6 +32,7 @@ export const sendEmailConfig = async (targetEmail, configKey, result) => {
         "Content-Type": "application/json;charset=utf-8",
       },
       body: JSON.stringify(putEmailObject),
+      credentials: "include",
     });
   } catch (error) {
     console.error("Ошибка:", error);
