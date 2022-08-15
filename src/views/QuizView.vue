@@ -9,8 +9,8 @@ import IconStar from "@/components/Icons/IconStar.vue";
 import IconTriangle from "@/components/Icons/IconTriangle.vue";
 import IconN from "@/components/Icons/IconN.vue";
 
-// import quizObject from "@/utils/questions";
-import { smallQuiz } from "@/utils/questions";
+import quizObject from "@/utils/questions";
+// import { smallQuiz } from "@/utils/questions";
 
 const icons = {
   I: IconSquare,
@@ -21,7 +21,7 @@ const icons = {
 };
 
 const state = reactive({
-  quiz: smallQuiz,
+  quiz: quizObject,
   questionIndex: 0,
   userResponses: {},
   isFinished: false,
