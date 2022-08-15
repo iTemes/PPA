@@ -1,4 +1,3 @@
-// const API_URL = "/expand_settings/api/saver_tester/";
 const API_URL = "/expand_settings/api/saver_tester/";
 
 export const saveConfigurator = async (data) => {
@@ -10,9 +9,8 @@ export const saveConfigurator = async (data) => {
       },
       body: JSON.stringify(data),
     });
-    console.log("response body", response);
+
     const result = await response.json();
-    console.log("##### result", result);
     return result;
   } catch (error) {
     console.error("Ошибка:", error);
